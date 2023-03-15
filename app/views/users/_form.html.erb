@@ -10,6 +10,38 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="form-group">
+    <%= form.label :firstName, "FirstName"%>    
+    <%= text_field(:user, :firstName, value: user.firstName, class: '')  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :lastName, "lastName"%>    
+    <%= text_field(:user, :lastName, value: user.lastName, class: '')  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :age, "age"%>    
+    <%= text_field(:user, :age, value: user.age, class: '')  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :gender, "gender"%>    
+    <%= text_field(:user, :gender, value: user.gender, class: '')  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email, "email"%>    
+    <%= text_field(:user, :email, value: user.email, class: '')  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description, "Description" , class: "form-label inline-block mb-2 text-gray-700"%>    
+    <%= text_field(:user, :description, value: user.description, data:{ "post-target": "title" }, class: '')  %>
+  </div>
+
+
 
   <div class="actions">
     <%= form.submit %>
