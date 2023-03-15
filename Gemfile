@@ -42,6 +42,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem "letter_opener"
 end
 
 group :test do
@@ -61,3 +62,5 @@ gem "pg", "~> 1.1"
 gem "rest-client"
 # to paginate the data 
 gem 'pagy', '~> 5.9', '>= 5.9.1'
+
+gem "sidekiq", "~> 7.0"
