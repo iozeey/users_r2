@@ -14,6 +14,8 @@ class User < ApplicationRecord
     end
 
     def send_removed_mail
-        UserRemovedMailer.with(invite: self).user_removed_email(to: self.email).deliver
+        job_params = {}
+        job_params["email"] = self.email
+        UserMailerJob.perform_in(30.minutes, job_params)
     end
 end
