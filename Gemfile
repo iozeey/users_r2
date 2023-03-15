@@ -59,3 +59,5 @@ gem "pg", "~> 1.1"
 
 # to fetch data from api
 gem "rest-client"
+# to paginate the data 
+gem 'pagy', '~> 5.9', '>= 5.9.1'
