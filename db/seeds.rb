@@ -13,3 +13,5 @@ json = JSON.parse(users)
 json["users"].each do |user|
     User.create(user)
 end
+
+ActiveRecord::Base.connection.tables.each { |t| ActiveRecord::Base.connection.reset_pk_sequence!(t) }
