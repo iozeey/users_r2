@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'rest-client'
+
+users = RestClient.get 'https://dummyjson.com/users'
+
+json = JSON.parse(users)
+json["users"].each do |user|
+    User.create(user)
+end

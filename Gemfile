@@ -56,3 +56,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+
+# to fetch data from api
+gem "rest-client"
