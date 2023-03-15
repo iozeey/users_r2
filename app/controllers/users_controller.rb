@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @pagy_meta, @users = pagy(User.all, items: per_page, page: params[:page])
+    @pagy_meta, @users = pagy(User.search(params), items: per_page, page: params[:page])
   end
 
   # GET /users/1 or /users/1.json
