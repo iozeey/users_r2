@@ -7,4 +7,6 @@ for sidekiq
 
 # Commands
 
-rails g sidekiq:job <NewWorkerJob>
+./bin/rails generate sidekiq:job <NewWorkerJob>
+./bin/rails generate component <NewComponentName>
+./bin/rails test test/models/user_test.rb

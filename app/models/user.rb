@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    validates :email, presence: true
+    validates :username, presence: true
 
     after_destroy :send_removed_mail
 
