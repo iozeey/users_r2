@@ -9,11 +9,13 @@
    <%= render(UserTableHeaderComponent.new(["First Name", "Last Name", "Email", "Gender", "Height"]))%>
 
     <tbody>
+
         <% @users.each do |user| %>
-
-         <%= render(UserTableRowComponent.new(user)) %>
-
+          <% cache(user) do %>
+            <%= render(UserTableRowComponent.new(user)) %>
+          <% end %>
         <% end %> 
+
     </tbody>
 
   </table>
