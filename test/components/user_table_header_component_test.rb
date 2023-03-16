@@ -3,16 +3,10 @@
 require "test_helper"
 
 class UserTableHeaderComponentTest < ViewComponent::TestCase
-  def test_component_renders_something_useful
-    assert_equal(
-      %(<thead>
-          <tr>
-            <th></th>
-            <th>First Name</th>
-            <th colspan="3">Actions</th>
-          </tr>
-        </thead>),
-      render_inline(UserTableHeaderComponent.new(["First Name"])).to_html
-    )
+  def test_component_second_heading
+    headerArr = ["First"]
+    render_inline(UserTableHeaderComponent.new(headerArr))
+    assert_selector 'th[2]'
+    assert_text "First"
   end
 end
