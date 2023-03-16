@@ -5,13 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'rest-client'
-
-users = RestClient.get 'https://dummyjson.com/users'
-
-json = JSON.parse(users)
-json["users"].each do |user|
-    User.create(user)
+# 
+5.times do |index|
+    url = "https://dummyjson.com/users?limit=30&skip=#{rand(0...5)}"
+    LoadUsersJob.perform_async(url)
 end
-
-ActiveRecord::Base.connection.tables.each { |t| ActiveRecord::Base.connection.reset_pk_sequence!(t) }
