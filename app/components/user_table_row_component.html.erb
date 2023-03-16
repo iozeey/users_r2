@@ -1,0 +1,10 @@
+<tr id="<%= dom_id(@user) %>">
+    <td><%= check_box_tag '', @user.id, false, class: 'delete_multiple_checkbox', name: "users[]" %>
+    <td><%= @user.firstName %></td>
+    <td><%= @user.lastName %></td>
+    <td><%= @user.email %></td>
+    <td><%= @user.gender %></td>
+    <td><%= @user.height %></td>
+    <td><%= link_to 'Edit', edit_user_path(@user) %></td>
+    <td><%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
