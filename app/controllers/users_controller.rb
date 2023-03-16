@@ -47,7 +47,7 @@ class UsersController < ApplicationController
         format.turbo_stream do 
           render turbo_stream: [
             turbo_stream.replace("notification", partial: 'layouts/notice', locals: { notice: "Updated"}),
-             turbo_stream.replace("user_form", partial: 'users/form', locals: {user: @user}),
+            turbo_stream.replace("user_form", partial: 'users/form', locals: {user: @user}),
           ]
         end
         format.html { redirect_to edit_user_url(@user), notice: "User was successfully updated." }
@@ -79,6 +79,16 @@ class UsersController < ApplicationController
     User.where(id: params[:users]).destroy_all
 
     respond_to do |format|
+      ts = [turbo_stream.replace("notification", partial: 'layouts/notice', locals: { notice: "Updated trashed"})]
+
+      params[:users].each do |id|
+        ts.push(turbo_stream.remove("user_#{id}"))
+      end      
+      
+      format.turbo_stream do 
+        render turbo_stream: ts
+      end
+
       format.html { redirect_to users_url, notice: "Successfully destroyed." }
       format.json { head :no_content }
     end
