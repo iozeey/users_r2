@@ -4,9 +4,15 @@ require "test_helper"
 
 class UserTableHeaderComponentTest < ViewComponent::TestCase
   def test_component_renders_something_useful
-    # assert_equal(
-    #   %(<span>Hello, components!</span>),
-    #   render_inline(UserTableHeaderComponent.new(message: "Hello, components!")).css("span").to_html
-    # )
+    assert_equal(
+      %(<thead>
+          <tr>
+            <th></th>
+            <th>First Name</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>),
+      render_inline(UserTableHeaderComponent.new(["First Name"])).to_html
+    )
   end
 end

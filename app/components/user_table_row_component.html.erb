@@ -1,5 +1,5 @@
 <tr id="<%= dom_id(@user) %>">
-    <td><%= check_box_tag '', @user.id, false, class: 'delete_multiple_checkbox', name: "users[]" %>
+    <td><%= check_box_tag '', @user.id, false, class: 'delete_multiple_checkbox', name: "users[]" %></td>
     <td><%= @user.firstName %></td>
     <td><%= @user.lastName %></td>
     <td><%= @user.email %></td>
