@@ -1,4 +1,4 @@
-<%= form_with(model: user) do |form| %>
+<%= form_with(model: user, id: "user_form", data: {action: "user#submit"}) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -44,6 +44,6 @@
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"",data:{ user_target: "submitBtn"} %>
   </div>
 <% end %>

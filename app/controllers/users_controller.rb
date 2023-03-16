@@ -38,6 +38,12 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        format.turbo_stream do 
+          render turbo_stream: [
+            turbo_stream.replace("notification", partial: 'layouts/notice', locals: { notice: "Created."}),
+             turbo_stream.replace("user_form", partial: 'users/form', locals: {user: @user}),
+          ]
+        end
         format.html { redirect_to edit_user_url(@user), notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
